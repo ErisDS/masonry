@@ -404,7 +404,8 @@
       return {
         $brick: $brick,
         x: offset.left,
-        y: offset.top
+        y: offset.top,
+        width: $brick.width()
       };
     },
 
@@ -429,7 +430,7 @@
           closest = {
             dist: dist,
             $brick: $b,
-            index: (point.x > dPoint.x) ? i : i+1
+            index: (dPoint.x > (point.x + point.width )) ? i + 1 : i
           };
         }
 
@@ -445,7 +446,7 @@
             closest = {
               dist: dist,
               $brick: $b,
-              index: (point.x > dPoint.x) ? i : i+1
+              index: (dPoint.x > (point.x + point.width )) ? i + 1 : i
             };
           }
         }
